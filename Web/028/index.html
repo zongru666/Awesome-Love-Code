@@ -16,12 +16,9 @@
   <style>
     .player {
       display: flex;
-      padding: 12px;
-      margin-top: 25px;
-      border-radius: 250px;
-      background: #FFF;
-      box-shadow: inset 3px 3px 5px #CBCFFC, inset -3px -3px 5px #FFF;
-      text-align: center
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
     }
     .controls {
       margin-top: 10px;
@@ -131,7 +128,10 @@
 
     <!-- 我添加的音乐播放器 -->
     <div class="player">
-      <audio id="myAudio" autoplay loop src="https://raw.kkgithub.com/zongru666/Awesome-Love-Code/main/music/ZhiDuiNiYouGanJue.mp3" controls></audio>
+      <center>
+        <audio id="myAudio" autoplay loop src="https://raw.kkgithub.com/zongru666/Awesome-Love-Code/main/music/ZhiDuiNiYouGanJue.mp3" controls></audio>
+      </center>
+      
     </div>
 
 
