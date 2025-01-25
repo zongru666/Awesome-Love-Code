@@ -114,20 +114,21 @@
     </div>
 
     <div class="footer">
-
+      <button onclick="playAudio()">播放音乐</button>
+      <audio id="myAudio" autoplay preload="auto" loop>
+        <source src="https://raw.kkgithub.com/zongru666/Awesome-Love-Code/main/music/ZhiDuiNiYouGanJue.mp3" type="audio/mp3">
+      </audio>
+      <script>
+        function playAudio() {
+          var audio = document.getElementById("myAudio");
+          audio.play();
+        }
+      </script>
+      
       <a href="https://zongru666.github.io/"><br><b>Copyright © 2025 By zongru666</b><br> </a>
     </div>
 
-    <button onclick="playAudio()">播放音乐</button>
-    <audio id="myAudio" autoplay preload="auto" loop>
-      <source src="https://raw.kkgithub.com/zongru666/Awesome-Love-Code/main/music/ZhiDuiNiYouGanJue.mp3" type="audio/mp3">
-    </audio>
-    <script>
-      function playAudio() {
-        var audio = document.getElementById("myAudio");
-        audio.play();
-      }
-    </script>
+    
 </body>
 
 </html>
