@@ -12,6 +12,26 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery.min.js" defer=""></script>
   <script src="js/index.js" defer=""></script>
+
+  <style>
+    .player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .controls {
+      margin-top: 10px;
+    }
+    .progress-container {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .time {
+      margin: 0 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -127,7 +147,60 @@
       
       <a href="https://zongru666.github.io/"><br><b>Copyright © 2025 By zongru666</b><br> </a>
     </div>
+    
 
+    <div class="player">
+      <audio id="myAudio" src="https://raw.kkgithub.com/zongru666/Awesome-Love-Code/main/music/ZhiDuiNiYouGanJue.mp3" controls></audio>
+      <div class="controls">
+        <button onclick="playAudio()">播放</button>
+        <button onclick="pauseAudio()">暂停</button>
+      </div>
+      <div class="progress-container">
+        <span class="time" id="currentTime">0:00</span>
+        <progress id="progressBar" value="0" max="100"></progress>
+        <span class="time" id="totalDuration">0:00</span>
+      </div>
+    </div>
+
+    <script>
+      const audio = document.getElementById("myAudio");
+      const progressBar = document.getElementById("progressBar");
+      const currentTime = document.getElementById("currentTime");
+      const totalDuration = document.getElementById("totalDuration");
+    
+      // 更新进度条和时间显示
+      function updateProgress() {
+        const duration = audio.duration; // 总时长
+        const currentTime = audio.currentTime; // 当前播放时间
+        const progress = (currentTime / duration) * 100; // 当前进度百分比
+    
+        // 更新进度条
+        progressBar.value = progress;
+    
+        // 更新时间显示
+        document.getElementById("currentTime").textContent = formatTime(currentTime);
+        document.getElementById("totalDuration").textContent = formatTime(duration);
+      }
+    
+        // 格式化时间显示为分钟:秒
+        function formatTime(time) {
+          const minutes = Math.floor(time / 60);
+          const seconds = Math.floor(time % 60);
+          return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+        }
+    
+        // 监听音频播放时间更新
+        audio.addEventListener("timeupdate", updateProgress);
+    
+        // 播放和暂停按钮功能
+        function playAudio() {
+          audio.play();
+        }
+    
+        function pauseAudio() {
+          audio.pause();
+        }
+    </script>
     
 </body>
 
